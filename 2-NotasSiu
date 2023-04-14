@@ -349,3 +349,4 @@ imprimir los elementos del arreglo
 //el limite de datos que le caben a un arreglo es 10^7
 
 //counting y bucket sort solo se pueden usar para tipos de datos enteros
+
