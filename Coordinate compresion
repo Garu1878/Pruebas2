@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int n;
+  cin>>n;
+  map<int,int> m;
+  vector<int> a(n);
+  for(int x=0;x<n;x++){
+      cin>>a[x];
+  }
+  vector<int> b=a;
+  sort(b.begin(),b.end());
+  for(int x=0;x<n;x++){
+      m[b[x]]=x;
+  }
+  for(int x=0;x<n;x++){
+      a[x]=m[a[x]];
+  }
+  return 0;
+}
