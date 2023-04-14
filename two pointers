@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+using namespace std;
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int n,m=1,c=0,val,tp=0;
+  cin>>n>>val;
+  int a[n];
+  for(int x=0;x<n;x++){
+      cin>>a[x];
+      if(a[x]+c<val){
+          c+=a[x];
+          m=max(m,x-tp+1);
+      }
+      else{
+          while(a[x]+c>=val){
+              c-=a[tp];
+              tp++;
+              if(tp==x) break;
+          }
+          c+=a[x];
+          m=max(m,x-tp+1);
+      }
+  }
+  cout<<m;
+  return 0;
+}
