@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#define ull unsigned long long
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+using namespace std;
+
+struct persona{
+  string name,pas;
+  int edad,indice;
+};
+
+struct orden{
+  bool operator()(persona a, persona b){
+    if(a.edad!=b.edad) return a.edad<b.edad;
+    return a.indice>b.indice;
+  }
+};
+int main(){
+  int n,k;
+  string nom,time;
+  priority_queue<persona, vector<persona>,orden> q;
+  cin>>n;
+  persona a;
+  for(int x=0;x<n;x++){
+    cin>>a.name>>a.edad>>a.pas;
+    a.indice=x;
+    q.push(a);
+  }
+  for(int x=0;x<n;x++){
+    a=q.top();
+    cout<<a.name<<" "<<a.edad<<" "<<a.pas<<endl;
+    q.pop();
+  }
+  return 0;
+}
