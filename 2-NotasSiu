@@ -1,0 +1,351 @@
+El ampersan & sirve para pasar la variabe directa y no una copia, ya que sin el ampersan 
+
+//Matrices
+Primero filas y luego columnas
+fila---
+columna|
+       |
+       |
+       
+Leer matriz(){
+  int n,m;
+  cin>>n;
+  cin>>m;
+  float ma[n][m];
+  for(int fila=0;fila<n;fila++){
+     for(int fila=0;fila<n;fila++){
+       cin>>ma[n][m];
+     }
+  }
+  
+}
+
+
+//Vectores
+Arreglo dinamico, se diferencia del arreglo porque no tiene que definir su tamaño al declararse y puede cambiar su tamaño,
+agregar o quitar numeros
+
+funciones
+//define vector sin tamaño
+vector<int> v;
+//define un vector con tamaño
+vector<int> v[n];
+//agrega un elemento a la ultima posicion del arreglo
+v.push_back(n);
+//elimina un elemento de la ultima posicion del arreglo
+v.pop_back();
+//"operadores"
+v.begin() //primera posicion del arreglo
+v.end() //ultima posicion del arreglo
+v.empty() //booleano, true cuando el arreglo esta vacio y false cuando tiene elementos
+v.front() //devuelve el primer elemento del arreglo
+v.front()=11;
+v.back() //devuelve el ultimo elemento del arreglo
+
+//erase
+v.erase(v.begin()+1);
+//eliminar elementos en un rango
+v.erase(num.begin(+1,v.begin()+3+1);
+
+//insert
+v.insert(v.begin()+4,300);
+//insert(inicio+indice,numero a insertar o numeros(entre llaves {89,100,333}
+
+
+//for auto
+main{
+  //recorre un para recorrer un arreglo de inicio a final, manipulando cada uno de sus elementos
+  for(auto x:v){
+  cout<<x<<" ";
+  }
+}
+
+//queue
+una fila, solo se puede accedere a un dato a la vez, el primero en entrar
+usar fifo (firts in, first out)
+#define nl cout<<"\n";
+main(){
+  //define un queue
+  queue<string> fila;
+  //queue< tipo de dato> nombre de variable;
+  //agregar elementos a la fila
+  fila.push("Juanito");
+  fila.push("Pepe");
+  fila.push("Edmundo");
+  fila.push("Abraham");
+  fila.push("Luis");
+  fila.push("Pino");
+  cout<<fila.front();
+  nl;
+  //elimina elemntos del frente
+  fila.pop();
+  cout<<fila.front();
+  nl;
+}
+
+funciones
+fila.size() // tamaño de la queue
+
+
+
+//deque
+una fila de la c ual se pueden acceder a los datos por adelante y por atras, solo
+se puede acceder a un dato a la vez, 
+#define nl cout<<"\n";
+main(){
+  //define un deque
+  deque<string> dq;
+  
+}
+funciones 
+//insertar un elemento atras de la cola
+dq.push_back(1);
+//insertar un elemento adelante de la cola
+dq.push_front(1);
+//eliminar un elemento de atras de la cola
+dq.pop_back();
+//eliminar un elemento de adelante de la cola
+dq.pop_front();
+
+dq.size();
+dq.empty();
+
+
+//stack
+pila, solo se puede acceder a un dato a la vez, solose puede acceder al elemento mas reciente
+filo(first in, last out)
+
+//macros (#define)
+es para remplazar el codigo, nua manera de hacer mas rapido la escritura, mediante la insercion de codigo
+
+//#define + id + codigo remplazo
+#define ll long long
+
+//sort
+ordenas un arreglo de diferentes formas
+
+//insection sort
+/*
+{3, 4, 1, 3, 9, 10}
+consiste en buscar el elemento mas pequeño del arreglo y insertarlo en x posicion, incrementando segun la operacion hecha;
+*/
+codigo siu
+no lo anote
+//funcion sort
+una funcion implementada para sortear, requiere el inicio del arreglo/vector, el final del arreglo / vector + opcional un
+metodo de ordenaiento, se puede sortear structs, mediante un booleano con los criterios de ordenamiento
+
+//stable sort
+sirve para desempatar de maneras asertiva al ordenar, pues en un sort normal, al empatar
+se pierde el elemento que hiba antes, puede arrogar cualquier elemento, el stable sort asegura que el primer elemento
+del empate en aparecer, sera el primero en aparecer despues de ordenarse, se escribe de la misma manera que el sort normal
+
+//priority queue
+hace falta la libreria <queue>
+//definir una cola de prioridad
+priority_queue<int> cola;
+una queue que va ordenando los datos de forma decreciente conforme van siendo insertados en la cola
+
+funciones
+empty() // saber si esta vacio o no
+pop() //eliminar el dato al principio de la cola (en el caso preterminado, el elemento mas grande)
+push() //agregar un elemento a la cola de prioridad, sera ordenado automaticamente de manera
+decreciente, aunque puede llevar un metodo de ordenamiento
+top() //operar el numero
+
+sobreescribir la funcion de compraramiento de cola d prioridad
+/*
+       #include<bits/stdc++.h>
+       using namespace std;
+       #define ull unsigned long long
+       #define ll long long
+       #define cnl cout<<"\n"
+       #define nl "\n"
+       #define sp fixed<<setprecision
+
+
+       struct orden{
+       bool operator()(int x,int y){
+         return x>y;
+       }
+       };
+
+       int main(){
+         ios_base::sync_with_stdio(0);
+         cin.tie(0);
+         int n,k;
+         priority_queue<int, vector<int>,orden> q;
+         cin>>n;
+         while(n--){
+           cin>>k;
+           q.push(k);
+         }
+         while(!q.empty()){
+           cout<<q.top()<<" ";
+           q.pop();
+         }
+
+         return 0;
+       }
+       //les fokin go
+*/
+
+//recursion
+
+ejemplo fibbonacci con memoria
+
+/*
+       #include<bits/stdc++.h>
+       using namespace std;
+       #define ull unsigned long long
+       #define ll long long
+       #define cnl cout<<"\n"
+       #define nl "\n"
+       #define sp fixed<<setprecision
+
+       ll ar[105]={};
+
+       ll f(ll n){
+         if(n==1 || n==0) return 1;
+
+         if(ar[n]!=0){
+           return ar[n];
+         }
+         ll res=f(n-1)+f(n-2);
+         ar[n]=res;
+         return res;
+       }
+
+       int main(){
+         ios_base::sync_with_stdio(0);
+         cin.tie(0);
+         ll n; cin>>n;
+         cout<<f(n)<<nl;
+         return 0;
+       }
+       //les fokin go
+
+*/
+
+retorno con puntero
+//begin es principio
+//rbegin es reverse begin, el ultimo elemento
+
+*begin retorna valor agregando un * al principio
+
+
+//lower_bound(x) >=
+el primer elemento mayor o igual que x
+//upper_bound(x) >
+elm primer elemento mayor que x
+
+* para saber el numero y no el puntero
+
+
+//set 
+un conjunto de elementos que non se repiten
+erase(x) para eliminar x elemento
+insert(x) para agregar un nuevo elemento
+find(x) para encontrar  un dato, si no existe arroga el s.end(), el s.end() no se puede borrar pq se arruina la estructura de datos
+
+imprimir un set al revez, sin un bool orden
+/*
+       for(auto it=s.rbegin();it!=s.end();it++{
+         cout<<*it<<" ";
+       }
+       cout<<'\n';
+*/
+
+//multiset
+un set pero con conjunto de elementos que si pueden ser repetidos
+el find puede encontrar cualquiera de todos los repetidos,
+el erase borra todos los nuemros iguales al (x)
+para eliminar unicamente un elemento primero se debe buscar si existe el numero, 
+y en caso de que si, borrarlo con lowerbound,
+si se borra sin buscarlo primero podria eliminarse un numero que no se quiere eliminar
+
+
+//map
+cuando una variable mapea a otra, es como un vector, pero no se limita a usar numeros como indices,
+se pueden ver como indices, pero realmente se llaman llaves, lo que se ordena al usar el map son
+los indices, se mantiene ordenado con respecto a las llaves.
+
+funciones
+size()
+empty()
+begin()
+rbegin()
+find()
+lower_bound()
+upper_bound()
+erase()
+insert(key,value)
+
+se puede insertar sin la funcion insert, simplemente usando llaves
+
+usando las funciones de find, begin, upper, te regresa un par de datos, el indice(key)
+y el dato
+
+
+//ejemplos siu
+
+       #include <bits/stdc++.h>
+
+       using namespace std;
+       #define nl '\n'
+       int main()
+       {
+           map<string,int> m;
+           m["Abraham"] = 1;
+           m["Pino"] = 2;
+           m["Edmundo"] = 4;
+           m["Job"] = 5;
+           m["LuisFer"] = 6;
+           m["Abraham"] = 7;
+
+           //pasandolo a pair a usar el * al principio
+           auto inicio= *m.begin();
+           cout<<(inicio.first,inicio.second);
+
+           //no tiene asterisco, sigue siendo un iterador
+           auto fin= m.end();
+           //desreferenciandolo usando * al principio para convertirlo en pair
+           cout<<((*fin).first,(*fin).second);
+           //usando el operador -> para punteros/iteradores
+           cout<<(fin->first,fin->second);
+
+           //al preguntar, retorna que el valor no existe
+           //pero despues se inserta al mapa, por lo que puede
+           //arruinar el codigo
+           if(m["Daniel"]){
+               cout<<"Si existe"<<nl;
+           }
+
+           //remplazo de usar el != variable.end()
+           //  NO USEN COUNT EN MULTISET O MUEREN :)
+           if(m.count("Pino")){
+               cout<<"Pinoman is here"<<nl;
+           }
+
+           //imprimir
+
+           for(auto it:m){
+           cout<<it.first<<" "<<it.second<<nl;
+           }
+           return 0;
+       }
+
+
+//counting sort
+
+es un algortimo de ordenamiento que se utiliza unicamente para ordenar enteros y chars
+
+lo primero es tomar el rango de valores, tiene que caber en un arreglo o no se puede
+se basa en tomar el numero mas pequeño y el mas grande, entonces el intervalo va a ir desde el minimo hasta el maximo, lo siguiente es leer cada numero
+y contarlo, esto se puede hacer con un mapa, incrementando las veces que aparece cada numero, como un contador, luego con fors anidados se pueden 
+imprimir los elementos del arreglo
+
+
+//el limite de datos que le caben a un arreglo es 10^7
+
+//counting y bucket sort solo se pueden usar para tipos de datos enteros
