@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  ll n,a,b,m,prsu;
+  cin>>n;
+  ll v[n+1]={},sum[n+1]={};
+  for(ll x=1;x<=n;x++){
+    cin>>v[x];
+    sum[x]=(sum[x-1]+v[x]);
+  }
+  cin>>m;
+  for(ll x=0;x<m;x++){
+    cin>>a>>b;
+    prsu=sum[b]-sum[a-1];
+    cout<<prsu<<endl;
+  }
+  return 0;
+}
