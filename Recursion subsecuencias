@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+
+int ac=0;
+string es;
+
+void f(const string &s,int indice,string& t){
+  if(indice>=(int)s.size()){
+    if(t==es) ac++;
+  }else{
+    //no lo tomo
+    f(s,indice+1,t);
+    //lo tomo
+    t+=s[indice];
+    f(s,indice+1,t);
+    t.pop_back();
+  }
+}
+
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  string k;
+  cin>>k;
+  cin>>es;
+  string t="";
+  f(k,0,t);
+  cout<<ac;
+  return 0;
+}
+//les fokin go
+
+
+/* input 
+aabaa
+aba
+*/
