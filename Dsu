@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+struct DSU{
+    vector<ll> padres,tamanos;
+    ll grupos
+    DSU(n){
+        padres.resize(n);
+        tamanos.rezise(n);
+        grupos=n;
+        iota(padres.begin(),padres.end(),0);
+        fill(tamanos.begin(),tamanos.end(),1);
+    }
+    ll find(ll w){
+        return w=padres[w] ? w : padres[w]=find(padres[w]);
+    }
+    bool iguales(ll v1,ll v2){
+        return (find(v1)==find(v2));
+    }
+    void amigar(ll v1,ll v2){
+        v1=find(v1);
+        v2=find(v2);
+        if(v1==v2) return;
+        padres[v1]=padres[v2];
+        tamano[v2]+=tamano[v1];
+        grupos--;
+    }
+    void expandir(){
+        grupos++;
+        tamano.push_back(1);
+        padres.push_back(padres.size());
+    }
+}
+
+int main()
+{
+    cout<<"Hello World";
+
+    return 0;
+}
