@@ -1,15 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define ll long long
 struct DSU{
-    vector<ll> padres,tamanos;
-    ll grupos
-    DSU(n){
+    vector<ll> padres,tamano;
+    ll grupos;
+    DSU(ll n){
         padres.resize(n);
-        tamanos.rezise(n);
+        tamano.resize(n);
         grupos=n;
         iota(padres.begin(),padres.end(),0);
-        fill(tamanos.begin(),tamanos.end(),1);
+        fill(tamano.begin(),tamano.end(),1);
     }
     ll find(ll w){
         return w=padres[w] ? w : padres[w]=find(padres[w]);
@@ -30,11 +27,5 @@ struct DSU{
         tamano.push_back(1);
         padres.push_back(padres.size());
     }
-}
-
-int main()
-{
-    cout<<"Hello World";
-
-    return 0;
+};
 }
