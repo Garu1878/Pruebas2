@@ -9,7 +9,7 @@ struct DSU{
         fill(tamano.begin(),tamano.end(),1);
     }
     ll find(ll w){
-        return w=padres[w] ? w : padres[w]=find(padres[w]);
+        return w==padres[w] ? w : padres[w]=find(padres[w]);
     }
     bool iguales(ll v1,ll v2){
         return (find(v1)==find(v2));
