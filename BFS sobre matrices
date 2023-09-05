@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+
+const int N = 105;
+const int INF = 1e9;
+
+string mat[N];
+int dist[N][N];
+int n, m;
+
+int di[] = {-1, 1, 0, 0};
+int dj[] = {0, 0, -1, 1};
+
+struct State{
+  int i,j;
+};
+
+bool valid(int i, int j) {
+  return 0 <= i && i < n && 0 <= j && j < m;
+}
+
+void bfs(State start) {
+   for (int i = 0; i < n; i++){
+     for (int j = 0; j < m; j++) {
+       dist[i][j] = INF;
+     }
+   }
+
+  queue<State> qu;
+
+  qu.push(start);
+  dist[start.i][start.j] = 0;
+
+  while (!qu.empty()) {
+    State cur = qu.front();
+    qu.pop();
+
+    for (int dir = 0; dir < 4; dir++) {
+      int ni = cur.i + di[dir];
+      int nj = cur.j + dj[dir];
+      State nxt = State{ni, nj};
+      
+      if (!valid(ni, nj))
+        continue;
+      if (mat[ni][nj] == '*')
+        continue;
+
+      if (dist[cur.i][cur.j] + 1 < dist[nxt.i][nxt.j]) {
+        dist[nxt.i][nxt.j] = dist[cur.i][cur.j] + 1;
+        qu.push(nxt);
+      }
+    }
+  }
+}
+
+
+int main(){
+  cin.tie(0)->sync_with_stdio(0), cout.tie(0);
+  cin>>n>>m;
+  getline(cin,mat[0]);
+    for(int i=0;i<n;i++) {
+      getline(cin,mat[i]);
+      //cout<<mat[i]<<nl;
+    }
+
+    State s= State{0,0};
+    bfs(s);
+
+    if (dist[n-1][m-1] < INF) {
+      cout <<dist[n-1][m-1];
+    } else {
+      cout << "D.E.P. :(\n";
+    }
+  return 0;
+}
+//les fokin go
