@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int ae[45]={};
+int f(int n){
+if(ae[n]!=0) return ae[n];
+if(n<=3) return ae[n]=1;
+return ae[n]=f(n-1)+f(n-2)+f(n-3);
+}
+int main() {
+  int n;cin>>n;
+  int k=f(n);
+  cout<<k;
+
+  return 0;
+}
