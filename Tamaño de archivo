@@ -1,0 +1,2 @@
+string path = "Main.cpp";
+cout << "size of file '" << path << "' = " << std::filesystem::file_size(path) << endl;
