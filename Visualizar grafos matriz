@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+const int N=55;
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int nodes,u,v,arist;
+  //numero de nodos, numero de aristas
+  cin>>nodes>>arist;
+  //matriz de adyacencia
+  bool graph[nodes][nodes];
+  for(int i=0;i<nodes;i++){
+    for(int j=0;j<nodes;j++){
+      graph[i][j]=0;
+    }
+  }
+  for(int i=0;i<arist;i++){
+    cin>>u>>v;
+    //usar si el grafo esta unindexado
+    u--;v--;
+    //grafo dirigido
+    graph[u][v]=1;
+    //para grafo no dirigido se agrega la contraparte
+    graph[v][u]=1;
+  }
+  for(int i=0;i<nodes;i++){
+    for(int j=0;j<nodes;j++){
+      cout<<graph[i][j]<<" ";
+    }
+    cnl;
+  }
+  return 0;
+}
+//les fokin go
