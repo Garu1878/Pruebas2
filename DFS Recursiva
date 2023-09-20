@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+
+//nodos
+const int N=55;
+
+vector<int> graph[N];
+bool vis[N]={0};
+
+void dfs(int u){
+  //lo marcamos como visitado
+  vis[u]=1;
+  //cout<<u+1<<" is"<<nl;
+  //para cada nodo al que puedo visitar:
+  for(auto v:graph[u]){
+    //cout<<u+1<<" nor "<<v+1<<nl;
+    //si ya lo visite lo ignoro
+    if(vis[v]==1) continue;
+    //si no lo he visitado lo visito
+    dfs(v);
+  }
+  return;
+}
+
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int nodes,u,v,arist;
+  //leer grafo
+  cin>>nodes>>arist;
+  for(int i=0;i<arist;i++){
+    cin>>u>>v;
+    //hacer esto si esta 1 indexado
+    u--;v--;
+    graph[u].push_back(v);
+    graph[v].push_back(u);
+  }
+  
+  //cout<<"Graph is:"<<nl;
+  //"0" representa el grafo donde tiras la bfs
+  dfs(0);
+  return 0;
+}
+//les fokin go
