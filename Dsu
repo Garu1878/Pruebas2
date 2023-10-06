@@ -28,4 +28,3 @@ struct DSU{
         padres.push_back(padres.size());
     }
 };
-}
