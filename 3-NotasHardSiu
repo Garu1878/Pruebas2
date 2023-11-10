@@ -1,0 +1,6 @@
+// Sparce Table
+Prefix sum no puede resolver cosas que no tengan inverso (max,min,gcd)
+
+La idea de sparce table es ir haciendo comparaciones "paso a paso", uniendo muchas querys pequeñas para obtener una query final
+El primer nivel va a representar la comparacion de 2 en 2 numeros
+los niveles van creciendo en potencias de 2, aprovechando los niveles anteriores, donde ya calculaste grupos mas pequeños
