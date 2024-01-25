@@ -8,6 +8,7 @@ using namespace std;
 #define nl "\n"
 #define sp fixed<<setprecision
 #define fore(i, l, r) for (auto i = (l); i < (r); i++)
+#define lsb(x) ( x & -x )
 int main(){
   ios_base::sync_with_stdio(0);
   cin.tie(0);
