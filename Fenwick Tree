@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define sz(x) int(x.size())
+#define all(x) x.begin(), x.end()
+#define ll long long
+#define cnl cout<<"\n"
+#define nl "\n"
+#define sp fixed<<setprecision
+#define fore(i, l, r) for (auto i = (l); i < (r); i++)
+#define lsb(x) ( x & -x )
+
+vector<int> few;
+int n;
+
+void update(int index, int val){
+    for(; index <= n; index += lsb(index)){
+        few[index] += val;
+    }
+}
+
+
+ll query(int index){
+    ll res = 0;
+    for(; index > 0 ; index -= lsb(index)){
+        res+=few[index];
+    }
+    return res;
+}
+
+ll query(int l, int r){
+    return query(r)-query(l-1);
+}
+
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  
+  cin>>n;
+  int a[n+1];
+  few.resize(n+1);
+  for(int i=1;i<=n;i++){
+      cin>>a[i];
+      update(i, a[i]);
+  }
+  
+  //fore(i, 1 , n+1) cout<<few[i]<<" ";
+  
+  int q;
+  cin>>q;
+  while(q--){
+      int l,r;
+      cin>>l>>r;
+      ll res=query(l,r);
+      cout<<res<<nl;
+  }
+  
+  return 0;
+}
+//les fokin go
